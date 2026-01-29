@@ -15,20 +15,22 @@ export async function POST(request: NextRequest) {
       : 'None specified'
 
     // Format licensed status
-    const licensedText = {
+    const licensedMap: Record<string, string> = {
       'yes': 'Yes, fully licensed',
       'in-progress': 'In progress',
       'no': 'No'
-    }[licensed] || licensed
+    }
+    const licensedText = licensedMap[licensed] || licensed
 
     // Format availability
-    const availabilityText = {
+    const availabilityMap: Record<string, string> = {
       'immediately': 'Immediately',
       '1-week': 'Within 1 week',
       '2-weeks': 'Within 2 weeks',
       '1-month': 'Within 1 month',
       'other': 'Other (see message)'
-    }[availability] || availability
+    }
+    const availabilityText = availabilityMap[availability] || availability
 
     // Send email
     await resend.emails.send({
