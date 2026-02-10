@@ -32,9 +32,9 @@ export async function POST(request: NextRequest) {
     }
     const availabilityText = availabilityMap[availability] || availability
 
-    // Send email
+    // Send email (using verified sullysblog.com domain)
     await resend.emails.send({
-      from: 'Tapered Edges Applications <onboarding@resend.dev>',
+      from: 'Tapered Edges Applications <mike@sullysblog.com>',
       to: process.env.APPLICATION_EMAIL || 'dedra@taperededges.com',
       replyTo: email,
       subject: `New Barber Application: ${name}`,
