@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
 
     // Send email (using verified sullysblog.com domain)
     await resend.emails.send({
-      from: 'Tapered Edges Applications <mike@sullysblog.com>',
+      from: 'Tapered Edges Applications <noreply@taperededges.com>',
       to: process.env.APPLICATION_EMAIL || 'dedra@taperededges.com',
       replyTo: email,
       subject: `New Barber Application: ${name}`,
